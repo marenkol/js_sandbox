@@ -1,3 +1,4 @@
+// Task 1
 function makeGreetings ( age ) {
 	let ageWord = 'год'
 
@@ -13,6 +14,8 @@ function makeGreetings ( age ) {
 }
 
 
+
+// Task 2
 function splitArray ( arr, num ) {
 	let subArray = []
 
@@ -22,3 +25,35 @@ function splitArray ( arr, num ) {
 
 	return subArray
 }
+
+
+
+// Task 3
+function transformData ( arr ) {
+	let finalObj = {}
+
+	arr.forEach( element => {
+		if ( element.mark > 5 ) {
+			let fullName = element.firstName
+
+			if ( element.lastName.length > 0 ){
+				fullName = fullName + ' ' + element.lastName
+			}
+
+			finalObj[element.login] = fullName
+		}
+	})
+
+	return finalObj
+}
+
+let res = transformData([
+ { login: 'johnny778', firstName: 'John', lastName: 'Doe', mark: 10 },
+ { login: 'superman', firstName: 'Mark', lastName: 'Coulson', mark: 6 },
+ { login: 'alexgerman', firstName: 'Alex', lastName: '', mark: 7 },
+])
+
+
+
+console.log( res )
+
