@@ -20,11 +20,16 @@ function splitArray ( arr, num ) {
 	let subArray = []
 
 	for ( let i = 0, j = arr.length; i < j; i += num ) {
-	  subArray.push( arr.slice(i, i + num) )
+		subArray.push( arr.slice(i, i + num) )
 	}
 
 	return subArray
 }
+
+
+
+// Task 3
+const add = a => b => a + b;
 
 
 
