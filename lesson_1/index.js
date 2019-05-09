@@ -28,7 +28,7 @@ function splitArray ( arr, num ) {
 
 
 
-// Task 3
+// Task 4
 function transformData ( arr ) {
 	let finalObj = {}
 
@@ -46,14 +46,4 @@ function transformData ( arr ) {
 
 	return finalObj
 }
-
-let res = transformData([
- { login: 'johnny778', firstName: 'John', lastName: 'Doe', mark: 10 },
- { login: 'superman', firstName: 'Mark', lastName: 'Coulson', mark: 6 },
- { login: 'alexgerman', firstName: 'Alex', lastName: '', mark: 7 },
-])
-
-
-
-console.log( res )
 
