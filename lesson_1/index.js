@@ -2,11 +2,11 @@
 function makeGreetings ( age ) {
 	let ageWord = 'год'
 
-	if ( age % 10 >= 2 && age % 10 < 5 ){
+	if ( age % 10 >= 2 && age % 10 < 5 ) {
 		ageWord = 'года'
 	}
 
-	if ( ( age % 10 >= 5 && age % 10 < 10 ) || ( age > 10 && age <= 19 ) || age % 10 == 0) {
+	if ( ( age % 10 >= 5 && age % 10 < 10 ) || ( age > 10 && age <= 19 ) || age % 10 == 0 ) {
 		ageWord = 'лет'
 	}
 
@@ -20,7 +20,7 @@ function splitArray ( arr, num ) {
 	let subArray = []
 
 	for ( let i = 0, j = arr.length; i < j; i += num ) {
-		subArray.push( arr.slice(i, i + num) )
+		subArray.push( arr.slice( i, i + num ) )
 	}
 
 	return subArray
@@ -29,7 +29,7 @@ function splitArray ( arr, num ) {
 
 
 // Task 3
-const add = a => b => a + b;
+const add = a => b => a + b
 
 
 
@@ -41,7 +41,7 @@ function transformData ( arr ) {
 		if ( element.mark > 5 ) {
 			let fullName = element.firstName
 
-			if ( element.lastName.length > 0 ){
+			if ( element.lastName.length > 0 ) {
 				fullName = fullName + ' ' + element.lastName
 			}
 
@@ -51,4 +51,3 @@ function transformData ( arr ) {
 
 	return finalObj
 }
-
