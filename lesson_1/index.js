@@ -1,5 +1,5 @@
 function makeGreetings ( age ) {
-	let ageWord = 'год';
+	let ageWord = 'год'
 
 	if ( age % 10 >= 2 && age % 10 < 5 ){
 		ageWord = 'года'
@@ -14,5 +14,11 @@ function makeGreetings ( age ) {
 
 
 function splitArray ( arr, num ) {
+	let subArray = []
 
+	for ( let i = 0, j = arr.length; i < j; i += num ) {
+	  subArray.push( arr.slice(i, i + num) )
+	}
+
+	return subArray
 }
