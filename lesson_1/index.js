@@ -19,7 +19,11 @@ function makeGreetings ( age ) {
 function splitArray ( arr, num ) {
 	let subArray = []
 
-	for ( let i = 0, j = arr.length; i < j; i += num ) {
+	if (Array.isArray(arr) || num < 0 || num){
+		return subArray
+	}
+
+	for ( let i = 0; i < arr.length; i += num ) {
 		subArray.push( arr.slice( i, i + num ) )
 	}
 
@@ -45,7 +49,8 @@ function transformData ( arr ) {
 				fullName = fullName + ' ' + element.lastName
 			}
 
-			finalObj[element.login] = fullName
+			// finalObj[element.login] = fullName
+			finalObj[element.login] = (element.firstName + ' ' + element.lastName).trim()
 		}
 	})
 
