@@ -30,7 +30,6 @@ function clearNumbers ( arr ) {
 }
 
 
-
 // Task 3
 function reverse () {
 
@@ -44,8 +43,4 @@ function reverse () {
 
 	return resultArray
 }
-
-let res = reverse('123', '456', {}, 22, 'Liliia')
-console.log(res)
-
 
