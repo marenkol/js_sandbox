@@ -1,15 +1,51 @@
 // Task 1
-function makeGreetings ( age ) {
-	let ageWord = 'год'
+function removeKeys ( obj, arr ) {
 
-	if ( age % 10 >= 2 && age % 10 < 5 ) {
-		ageWord = 'года'
-	}
+	arr.forEach( ( value ) => {
+		if ( obj.hasOwnProperty( value ) ){
+			console.log( value )
+			delete obj[value]
+		}
+	})
 
-	if ( ( age % 10 >= 5 && age % 10 < 10 ) || ( age > 10 && age <= 19 ) || age % 10 == 0 ) {
-		ageWord = 'лет'
-	}
-
-	return 'Мой возраст ' + age + ' ' + ageWord
+	return obj
 }
+
+
+
+// Task 2
+function clearNumbers ( arr ) {
+
+	arr.forEach( ( subArray ) => {
+		for ( let i = 0; i < subArray.length; ){
+			if ( typeof subArray[i] != "number" ){
+				subArray.splice( i, 1 )
+				continue
+			}
+			i++
+		}
+	})
+
+	return arr
+}
+
+
+
+// Task 3
+function reverse () {
+
+	let resultArray = []
+
+	for ( let i = 0; i < arguments.length; i++ ) {
+		if ( typeof arguments[i] === 'string'){
+			resultArray.push( arguments[i].split('').reverse('').join('') )
+		}
+	}
+
+	return resultArray
+}
+
+let res = reverse('123', '456', {}, 22, 'Liliia')
+console.log(res)
+
 
