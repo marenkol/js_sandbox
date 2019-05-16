@@ -40,10 +40,8 @@ function reverse () {
 			resultArray.push( arguments[i].split('').reverse('').join('') )
 		}
 	}
-
 	return resultArray
 }
-
 
 
 // Task 4
