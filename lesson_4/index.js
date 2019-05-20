@@ -1,13 +1,4 @@
-/* Part 1:
-Создать функцию makeImages, которая принимает бесконечное количество аргументов - ссылок на изображения, и должна создать для каждой ссылки тег img, с соответствующим адресом, и добавить в body обернутой каждую в свой div. Пример:
-makeImages('./img_1.png', './img_2.png', './img_3.png');
-Результат должен получиться следующий:
-<body>
-   <script src="index.js"></script>
-   <div><img src="./img_1.png"></div>
-   <div><img src="./img_3.png"></div>
-   <div><img src="./img_3.png"></div>
-</body>*/
+/* Task 1 */
 
 function makeImages (...images) {
 
@@ -32,15 +23,7 @@ function makeImages (...images) {
 
 
 
-/* Part 2:
-Создать класс FormBuilder, который имеет следующие методы:
-В конструкторе создает свой собственный элемент form, но не добавляет его никуда
-appendTo(target), где target - html элемент, добавляет свой элемент form внутрь элемента target
-addInput(name) - создает элемент input с типом text, атрибутом “name”=name и ложит его внутрь form
-addCheckbox(name) - создает элемент input с типом checkbox, атрибутом “name”=name и ложит его внутрь form
-addButton(name) - создает элемент button, текстом name и ложит его внутрь form
-	destroy() - убирает элемент form из html, Подсказка: parentElement, removeChild
-Под form, везде имеется один и тот же элемент созданный в конструкторе.*/
+/* Task 2 */
 
 class FormBuilder {
 	constructor (){
@@ -80,5 +63,29 @@ class FormBuilder {
 		console.log( this.form.parentElement );
 	}
 }
-
 // const myAwesomeForm = new FormBuilder();
+
+
+
+/* Task 3 */
+function initBall () {
+	const circle = document.createElement('div');
+	document.body.append(circle);
+
+	circle.style.position = 'absolute';
+	circle.style.zIndex = '10';
+	circle.style.backgroundColor = 'lightseagreen';
+	circle.style.width = '35px';
+	circle.style.height = '35px';
+	circle.style.borderRadius = '50%';
+	circle.style.cursor = 'pointer';
+	circle.style.transition = '.3s';
+
+	let docHeight = document.documentElement.clientHeight;
+	let docWidth = document.documentElement.clientWidth;
+
+	circle.addEventListener('click', () => {
+		circle.style.top = `${Math.floor(Math.random() * docHeight) - 35}px`;
+		circle.style.left = `${Math.floor(Math.random() * docWidth) - 35}px`;
+	} )
+}
