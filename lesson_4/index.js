@@ -72,6 +72,14 @@ function initBall () {
 	const circle = document.createElement('div');
 	document.body.append(circle);
 
+	let docHeight = document.documentElement.clientHeight;
+	let docWidth = document.documentElement.clientWidth;
+
+	const ballPosition = () => {
+		circle.style.top = `${Math.floor(Math.random() * docHeight) - 35}px`;
+		circle.style.left = `${Math.floor(Math.random() * docWidth) - 35}px`;
+	};
+
 	circle.style.position = 'absolute';
 	circle.style.zIndex = '10';
 	circle.style.backgroundColor = 'lightseagreen';
@@ -80,12 +88,12 @@ function initBall () {
 	circle.style.borderRadius = '50%';
 	circle.style.cursor = 'pointer';
 	circle.style.transition = '.3s';
+	ballPosition();
 
-	let docHeight = document.documentElement.clientHeight;
-	let docWidth = document.documentElement.clientWidth;
 
-	circle.addEventListener('click', () => {
-		circle.style.top = `${Math.floor(Math.random() * docHeight) - 35}px`;
-		circle.style.left = `${Math.floor(Math.random() * docWidth) - 35}px`;
-	} )
+	circle.addEventListener('click', ballPosition);
+
+	// window.addEventListener('click.stopPropagation()', () => {
+	// 	circle.removeEventListener('click', changeBallPosition)
+	// });
 }
