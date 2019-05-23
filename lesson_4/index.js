@@ -72,12 +72,14 @@ function initBall () {
 	const circle = document.createElement('div');
 	document.body.append(circle);
 
-	let docHeight = document.documentElement.clientHeight;
-	let docWidth = document.documentElement.clientWidth;
+	let docHeight = document.documentElement.clientHeight  - 35;
+	let docWidth = document.documentElement.clientWidth - 35;
 
-	const ballPosition = () => {
-		circle.style.top = `${Math.floor(Math.random() * docHeight) - 35}px`;
-		circle.style.left = `${Math.floor(Math.random() * docWidth) - 35}px`;
+	const ballPosition = (event) => {
+		circle.style.top = `${Math.floor(Math.random() * docHeight)}px`;
+		circle.style.left = `${Math.floor(Math.random() * docWidth)}px`;
+		console.log(event);
+		event.stopPropagation();
 	};
 
 	circle.style.position = 'absolute';
@@ -88,12 +90,16 @@ function initBall () {
 	circle.style.borderRadius = '50%';
 	circle.style.cursor = 'pointer';
 	circle.style.transition = '.3s';
-	ballPosition();
-
+	circle.style.top = `${Math.floor(Math.random() * docHeight)}px`;
+	circle.style.left = `${Math.floor(Math.random() * docWidth)}px`;
 
 	circle.addEventListener('click', ballPosition);
 
-	// window.addEventListener('click.stopPropagation()', () => {
-	// 	circle.removeEventListener('click', changeBallPosition)
-	// });
+	const removeBall = () => {
+		circle.removeEventListener('click', ballPosition);
+		console.log('window is ckicked');
+		window.removeEventListener('click', removeBall);
+		document.body.removeChild(circle);
+	}
+	window.addEventListener('click', removeBall);
 }

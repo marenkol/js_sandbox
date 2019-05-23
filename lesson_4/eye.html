@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lesson 4 / 2</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<style type="text/css">
+		.eyes{
+			display: flex;
+			height: 100vh;
+			width: 100%;
+			justify-content: center;
+			align-items: center;
+			background-color: #3A2A7C;
+		}
+		.eyes__wrap{
+			display: flex;
+		}
+		.eyes__eye{
+			position: relative;
+			height: 70px;
+			width: 140px;
+			background-color: #fafafa;
+			border-radius: 50%;
+			padding: 10px;
+			margin: 10px;
+			overflow: hidden;
+		}
+		.eyes__eyeblack{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			height: 20px;
+			width: 20px;
+			border: 10px solid #3c3c3c;
+			background-color: #000;
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+	<h1>Lesson 4 / 2</h1>
+
+	<div class="eyes">
+		<div class="eyes__wrap">
+			<div class="eyes__eye">
+				<div class="eyes__eyeblack"></div>
+			</div>
+			<div class="eyes__eye">
+				<div class="eyes__eyeblack"></div>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript" src="eye.js"></script>
+</body>
+</html>
