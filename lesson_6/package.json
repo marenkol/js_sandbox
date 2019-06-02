@@ -6,13 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
-    "build": "rm -rf dist && parcel build ./index.html --public-url /lesson6",
+    "build": "rm -rf dist && parcel build ./index.html --public-url /js_sandbox",
     "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "email-validator": "^2.0.4",
+    "format-validator": "^0.9.0",
     "gh-pages": "^2.0.1",
     "parcel": "^1.12.3",
     "random-email": "^1.0.3",

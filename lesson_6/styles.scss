@@ -3,7 +3,6 @@
 ================================ */
 .task1{
 	padding: 2rem 0;
-	margin-bottom: 2rem;
 	border-bottom: 1px solid #ccc;
 
 	&__modal{
@@ -65,6 +64,25 @@
 	Task 2
 ================================ */
 .task2{
-
+	@extend .task1;
 }
 
+/* ================================
+	Task 3
+================================ */
+.task3{
+	@extend .task1;
+
+	&__modal{
+		@extend .task1__modal;
+	}
+
+	&__modal_window{
+		@extend .task1__modal_window;
+	}
+
+	&__modal_close{
+		@extend .task1__modal_close;
+	}
+
+}
