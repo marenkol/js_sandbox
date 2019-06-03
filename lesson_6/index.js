@@ -55,11 +55,49 @@ const btnCloseModal2 = document.querySelector('.task3__modal_close');
 const formatResult = document.querySelector('.task3__result');
 
 const getFormat = () => {
-	let formatInput = emailInput.value;
-
 	modal2.classList.add('active');
-	console.log('Task 3 getFormat()')
-	// formatResult.innerHTML = randomEmail();
+
+	let formatInputValue = formatInput.value;
+
+	if (validators.isBIC(formatInputValue)){
+		formatResult.innerHTML = "BIC";
+	} else if (validators.isCreditCard(formatInputValue)) {
+		formatResult.innerHTML = "CreditCard";
+	} else if (validators.isEAN13(formatInputValue)) {
+		formatResult.innerHTML = "EAN13";
+	} else if (validators.isEmail(formatInputValue)) {
+		formatResult.innerHTML = "Email";
+	} else if (validators.isEmpty(formatInputValue)) {
+		formatResult.innerHTML = "Empty";
+	} else if (validators.isFloat(formatInputValue)) {
+		formatResult.innerHTML = "Float";
+	} else if (validators.isIMEI(formatInputValue)) {
+		formatResult.innerHTML = "IMEI";
+	} else if (validators.isInteger(formatInputValue)) {
+		formatResult.innerHTML = "Integer";
+	} else if (validators.isIPv4(formatInputValue)) {
+		formatResult.innerHTML = "IPv4";
+	} else if (validators.isISBN(formatInputValue)) {
+		formatResult.innerHTML = "ISBN";
+	} else if (validators.isISSN(formatInputValue)) {
+		formatResult.innerHTML = "ISSN";
+	} else if (validators.isLuhn(formatInputValue)) {
+		formatResult.innerHTML = "Luhn";
+	} else if (validators.isMobilePhoneFr(formatInputValue)) {
+		formatResult.innerHTML = "MobilePhoneFr";
+	} else if (validators.isNIR(formatInputValue)) {
+		formatResult.innerHTML = "NIR";
+	} else if (validators.isRIB(formatInputValue)) {
+		formatResult.innerHTML = "RIB";
+	} else if (validators.isSEDOL(formatInputValue)) {
+		formatResult.innerHTML = "SEDOL";
+	} else if (validators.isSIREN(formatInputValue)) {
+		formatResult.innerHTML = "SIREN";
+	} else if (validators.isSIRET(formatInputValue)) {
+		formatResult.innerHTML = "SIRET";
+	} else if (validators.isDate(formatInputValue, {format:["DD-MM-YYYY"],min:new Date(1970,0,1)})) {
+		formatResult.innerHTML = "Date";
+	}
 }
 
 const closeModal2 = (event) => {
