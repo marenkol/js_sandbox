@@ -1,0 +1,48 @@
+.main{
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 60px 15px;
+}
+
+
+.mini-slider{
+	position: relative;
+
+	&__imagewrap{
+		display: block;
+		text-align: center;
+	}
+
+	&__image{
+		object-fit: cover;
+		width: 320px;
+		height: 320px;
+
+		&.hidden{
+			display: none;
+		}
+	}
+
+	&__next,
+	&__prev{
+		position: absolute;
+		top: 49%;
+		cursor: pointer;
+
+		svg{
+			height: 50px;
+			transition: .3s;
+			&:hover{
+				fill: lightseagreen;
+			}
+		}
+
+
+	}
+	&__next{
+		right: 0;
+	}
+	&__prev{
+		left: 0;
+	}
+}
