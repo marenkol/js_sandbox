@@ -49,7 +49,7 @@ export default class Color {
 	}
 
 	fromString(str){
-		const matches = str.match( /^rgb\((\d+),(\d+),(\d+)\)$/g );
+		const matches = str.match( /^rgb\((\d+),(\d+),(\d+)\)$/ );
 
 		let Color = {
 			r: matches[1],
@@ -63,5 +63,4 @@ export default class Color {
 }
 
 const myColor = new Color(0,0,0);
-
 window.myColor = myColor
