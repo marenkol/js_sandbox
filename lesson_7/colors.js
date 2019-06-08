@@ -1,5 +1,5 @@
 // Task 1
-class Color {
+export default class Color {
 	constructor( r, g, b ){
 		this.r = r;
 		this.g = g;
@@ -47,4 +47,21 @@ class Color {
 		this.g = Math.floor(Math.random()*(max-min+1)+min);
 		this.b = Math.floor(Math.random()*(max-min+1)+min);
 	}
+
+	fromString(str){
+		const matches = str.match( /^rgb\((\d+),(\d+),(\d+)\)$/g );
+
+		let Color = {
+			r: matches[1],
+			g: matches[2],
+			b: matches[3]
+		}
+
+		// console.log(Color);
+		return Color;
+	}
 }
+
+const myColor = new Color(0,0,0);
+
+window.myColor = myColor
