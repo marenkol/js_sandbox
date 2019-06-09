@@ -11,16 +11,15 @@
 	&__imagewrap{
 		display: block;
 		text-align: center;
+		&.hidden{
+			display: none;
+		}
 	}
 
 	&__image{
 		object-fit: cover;
 		width: 320px;
 		height: 320px;
-
-		&.hidden{
-			display: none;
-		}
 	}
 
 	&__next,
