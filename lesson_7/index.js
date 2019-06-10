@@ -1,3 +1,11 @@
+import Color from './colors.js'
+
+const color = new Color;
+function getRandColor() {
+	color.random();
+	return color.toString();
+}
+
 class MiniSlider {
 	constructor(sliderID){
 		this.miniSlider = document.querySelector(`#${sliderID}`);
@@ -13,10 +21,12 @@ class MiniSlider {
 
 		this.prevBtn = this.miniSlider.querySelector('.mini-slider__prev');
 		this.prevBtn.addEventListener('click', this.prev.bind(this));
+
 	}
 
 	hideAll(){
 		for (let i = 0; i < this.elements.length; i += 1) {
+			this.elements[i].classList.remove('active');
 			this.elements[i].classList.add('hidden');
 		}
 	}
@@ -40,7 +50,6 @@ class MiniSlider {
 		this.miniSlider.appendChild(prev);
 	};
 
-
 	next(){
 		this.activeSlideIndex += 1;
 
@@ -50,7 +59,10 @@ class MiniSlider {
 
 		this.hideAll();
 		this.show(this.activeSlideIndex);
-		// console.log(this.activeSlideIndex);
+
+		this.randomColor = getRandColor();
+		this.nextBtn.style.borderColor = this.randomColor;
+		this.prevBtn.style.borderColor = this.randomColor;
 	}
 
 	prev(){
@@ -62,11 +74,15 @@ class MiniSlider {
 
 		this.hideAll();
 		this.show(this.activeSlideIndex);
-		// console.log(this.activeSlideIndex);
+
+		this.randomColor = getRandColor();
+		this.nextBtn.style.borderColor = this.randomColor;
+		this.prevBtn.style.borderColor = this.randomColor;
 	}
 }
 
-window.MiniSlider  = MiniSlider;
+// window.MiniSlider  = MiniSlider;
 
+const slider = new MiniSlider('mini-slider');
 
 
