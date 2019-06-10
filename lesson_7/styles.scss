@@ -11,6 +11,7 @@
 	&__imagewrap{
 		display: block;
 		text-align: center;
+
 		&.hidden{
 			display: none;
 		}
@@ -20,13 +21,22 @@
 		object-fit: cover;
 		width: 320px;
 		height: 320px;
+		transition: .4s;
+		// opacity: 0;
+
+		// &.visible{
+		// 	opacity: 1;
+		// }
 	}
 
 	&__next,
 	&__prev{
+		display: flex;
 		position: absolute;
 		top: 49%;
 		cursor: pointer;
+		border: 2px solid lightseagreen;
+
 
 		svg{
 			height: 50px;
