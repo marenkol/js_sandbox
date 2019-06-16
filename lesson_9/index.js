@@ -17,14 +17,14 @@ function waitForAnswer() {
 	return new Promise( (resolve, reject) => {
 		let checkSymbol = event => {
 			if ( event.keyCode == 89 ) {
-				// console.log('resolved');
-				return resolve;
+				window.removeEventListener( 'keydown', checkSymbol);
+				return resolve();
 			}
 			if ( event.keyCode == 78 ) {
-				// console.log('rejected');
-				return reject;
+				window.removeEventListener( 'keydown', checkSymbol);
+				return reject();
 			}
-			alert('Please, press Y ar N key');
+			alert('Please, press Y or N key');
 		}
 		window.addEventListener( 'keydown', checkSymbol);
 	});
@@ -47,5 +47,5 @@ waitForScroll()
 setText("Вы сделали домашнее задание? Y / N");
 
 waitForAnswer()
-	.then(setText('Так держать!'))
-	.catch(setText('Нужно подтянуть('));
+	.then(() => setText('Так держать!'))
+	.catch(() => setText('Нужно подтянуть('));
