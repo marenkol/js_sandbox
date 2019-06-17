@@ -16,6 +16,13 @@ function drawOnScroll() {
 	section.style.backgroundColor = colors[randColorIndex];
 }
 
+waitForScroll()
+.then(drawOnScroll);
+
+/**************************
+	Task 2
+**************************/
+
 function waitForAnswer() {
 	return new Promise((resolve, reject) => {
 		let checkSymbol = event => {
@@ -44,9 +51,6 @@ function setText(text){
 	}
 }
 
-waitForScroll()
-.then(drawOnScroll);
-
 setText("Вы сделали домашнее задание? Y / N");
 
 waitForAnswer()
@@ -56,18 +60,17 @@ waitForAnswer()
 
 
 /**************************
-	Task 2
+	Task 3
 **************************/
 
 function  waitForTime(sec) {
 	return new Promise ((resolve, reject) => {
-	// TODO change
-	const res = () => {
-		console.log('time finished!');
-		return resolve();
-	}
-	setTimeout(res, sec*1000);
-});
+		const res = () => {
+			console.log('time finished!');
+			return resolve();
+		}
+		setTimeout(res, sec*1000);
+	});
 }
 
 function waitForClicks(clicksAmount) {
@@ -92,7 +95,7 @@ function clickChallange(clicksAmount, sec) {
 	setText(`У вас есть ${sec} секунд, чтобы сделать ${clicksAmount} кликов`);
 
 	function compareTime(time1, time2) {
-		if ( time1 < time2 ){
+		if ( time1 <= time2 ){
 			setText('Good job, comrade');
 		} else {
 			setText('100 кликов вне очереди.');
@@ -104,9 +107,11 @@ function clickChallange(clicksAmount, sec) {
 
 	waitForTime(sec)
 	.then( () => timeIsOver = new Date().valueOf() )
-	.then( () => compareTime( timeIsOver, clicksDoneTime ) )
+	.then( () => compareTime( clicksDoneTime, timeIsOver ) )
+	.then( () => console.log(timeIsOver <= clicksDoneTime ? true : false) )
 
 	waitForClicks(clicksAmount)
 	.then( () => clicksDoneTime = new Date().valueOf() )
 	.then( () => compareTime( timeIsOver, clicksDoneTime ) )
+	.then( () => console.log(timeIsOver <= clicksDoneTime ? true : false) )
 }
