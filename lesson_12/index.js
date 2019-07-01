@@ -61,7 +61,7 @@ if ( resultListArr.length ){
 		}
 
 			// lestener for completed tasks
-			newLi.addEventListener('click', function toggleTask(){
+			newLi.querySelector('.toggle').addEventListener('click', function toggleTask(){
 				element.status = !element.status; // change status
 
 				setLocalStorage(JSON.stringify(resultListArr));
@@ -115,7 +115,7 @@ const addNewItem = event => {
 			}
 
 			// lestener for completed tasks
-			newLi.addEventListener('click', function toggleTask(){
+			newLi.querySelector('.toggle').addEventListener('click', function toggleTask(){
 				element.status = !element.status; // change status
 
 				setLocalStorage(JSON.stringify(resultListArr));
