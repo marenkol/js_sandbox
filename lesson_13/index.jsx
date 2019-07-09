@@ -45,67 +45,160 @@ function Box ({backgroundColor, borederRadius, children}){
 		)
 }
 
-ReactDOM.render((
-<div>
-	<Circle backgroundColor="royalblue" borederRadius="50%">
-		Hello
-	</Circle>
-	<Box backgroundColor="lightseagreen">
-		Hello
-	</Box>
-</div>
-), document.getElementById('root'));
-
-
 
 
 /* Task 2 */
-function Address ({ country, city, street, location }){
+function Header ({ links = { home: 'Home' } }){
 
-	const wrapStyles = {
-		maxWidth: '980px',
-		margin: '0 auto'
+	const headerStyles = {
+		display: 'flex',
+		justifyContent: 'center',
+		position: 'fixed',
+		left: 0,
+		top: 0,
+		width: '100%',
+		backgroundColor: 'lightseagreen',
+		textAlign:'center',
+		color: '#fff'
 	}
 
-	const elStyles = {
-		margin: '10px',
-		fontSize: '20px',
-		fontFamily: 'sans-serif'
+	const headerLinkStyles = {
+		display: 'flex',
+		alignItems: 'center',
+		padding: '20px',
+		textAlign:'center',
+		color: '#fff',
+		textDecoration: 'none'
 	}
 
 	return (
-		<div className="container" style={wrapStyles}>
-			<div style={elStyles}>
-				Country: { country }
-			</div>
+		<header style={headerStyles}>
+			<a href="#" style={headerLinkStyles}>Home</a>
+			<a href="#" style={headerLinkStyles}>About</a>
+			<a href="#" style={headerLinkStyles}>Footer</a>
+		</header>
+	)
+}
 
-			<div style={elStyles}>
-				City: { city }
-			</div>
+function Main ({ children }){
+	return (
+		<main className="main">
+			{ children }
+		</main>
+	)
+}
 
-			<div style={elStyles}>
-				Street: { street }
-			</div>
+function Content ({ children }){
+	return (
+		<section className="content">
+			{ children }
+		</section>
+	)
+}
 
-			<div style={elStyles}>
-				Location: lat { location.lat }, lng { location.lng }
-			</div>
+function Sidebar ({ children }){
+	return (
+		<aside className="sidebar">
+			{ children }
+		</aside>
+	)
+}
 
-			<div style={elStyles}>
-				<a href={`https://www.google.com/maps/@${location.lat},${location.lng},8.00z`}>Map Link</a>
-			</div>
+function Address ({ country, city, street, location }){
 
-		</div>
+	const elStyles = {
+		margin: '10px',
+		fontFamily: 'sans-serif'
+	}
+
+	if (location) {
+		return (
+			<div className="address">
+				<div style={elStyles}>
+					Country: { country }
+					<br/>
+					City: { city }
+					<br/>
+					Street: { street }
+				</div>
+
+				<div style={elStyles}>
+					Location: lat { location.lat }, lng { location.lng }
+				</div>
+
+				<div style={elStyles}>
+					<a href={`https://www.google.com/maps/@${location.lat},${location.lng},10.00z`}>Map Link</a>
+				</div>
+			</div>
+		)
+	} else {
+		return (
+			<div className="footer-address">
+				<div style={elStyles}>
+					Country: { country }, City: { city }, Street: { street }
+				</div>
+			</div>
+		)
+	}
+}
+
+function Footer ({ children }){
+	const address = children
+	? children
+	: null
+
+	const footerStyles = {
+		position: 'fixed',
+		left: 0,
+		bottom: 0,
+		right: 0,
+		padding: '20px',
+		backgroundColor: 'lightseagreen',
+		textAlign:'center',
+		color: '#fff'
+	}
+
+	return (
+		<footer style={footerStyles}>
+			{ address }
+		</footer>
 	)
 }
 
 ReactDOM.render((
 	<div>
-		<Address
+		<Header />
+
+		<Main>
+			<Content>
+				<Circle backgroundColor="royalblue" borederRadius="50%">
+					Hello
+				</Circle>
+
+				<Box backgroundColor="lightseagreen">
+					Hello
+				</Box>
+			</Content>
+
+			<Sidebar>
+				<Address
+				country="Ukraine"
+				city="Lviv"
+				street="Shevchenko"
+				location={{ lat: 49.842957, lng: 24.031111 }}
+				/>
+			</Sidebar>
+		</Main>
+
+		<Footer>
+			<Address
 			country="Ukraine"
 			city="Lviv"
 			street="Shevchenko"
-			location={{ lat: 49.842957, lng:24.031111 }}
-		/>
+			/>
+		</Footer>
 	</div>
-), document.getElementById('address'));
+), document.getElementById('root'));
+
+
+
