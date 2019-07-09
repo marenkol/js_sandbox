@@ -5,14 +5,31 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
+<style type="text/css">
+	body {
+		padding: 6rem 0 10rem;
+		font-size: 1rem;
+		font-family: sans-serif;
+	}
+
+	.main {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	@media(min-width: 540px){
+		.content {
+			width: 70%
+		}
+
+		.sidebar {
+			width: 30%;
+		}
+	}
+</style>
 <body>
-	<h1>React JS</h1>
 
-	<div id="root"></div>
-
-	<hr>
-
-	<div id="address"></div>
+	<div class="app" id="root"></div>
 
 	<script type="text/javascript" src="index.jsx"></script>
 </body>
