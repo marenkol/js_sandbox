@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap');
+
+* {
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+}
+
+body {
+	background: linear-gradient(336.91deg, #F0F4FD -56.86%, #FFFFFF 126.39%);;
+	font-size: 12px;
+	line-height: 15px;
+	letter-spacing: 1px;
+	margin: 0;
+	color: #384F7D;
+}
+
+.login{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+
+	&__container{
+		max-width: 400px;
+		margin: 0 auto;
+		padding: 10px 40px;
+		text-align: center;
+
+		@media (min-width: 992px){
+			max-width: 960px;
+		}
+	}
+
+	&__iconwrap{
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		background: linear-gradient(73.12deg, #25CED1 -19.51%, #34E6E9 58.02%, #6AFCFF 138%);
+		height: 212px;
+		width: 212px;
+		border-radius: 50%;
+
+		svg{
+			width: 84px;
+			fill: #fff;
+		}
+
+		&--orange{
+			width: 136px;
+			height: 136px;
+			background: linear-gradient(147.47deg, #FEB665 24.48%, #F66EB4 118.65%);
+		}
+	}
+
+	&__title{
+		font-weight: bold;
+		font-size: 32px;
+		line-height: 44px;
+		text-align: center;
+		color: #384F7D;
+	}
+
+	&__subtitle{
+		max-width: 380px;
+		margin: 0 auto 2rem;
+		font-weight: 300;
+		font-size: 14px;
+		line-height: 22px;
+		text-align: center;
+		color: rgba(56, 79, 125, 0.8);
+	}
+
+	&__next{
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		background: linear-gradient(125.58deg, #BAFB67 -5.37%, #00D23A 196.64%);
+		height: 48px;
+		width: 48px;
+		border: none;
+		border-radius: 50%;
+		cursor: pointer;
+		transition: background .3s;
+
+		&:hover{
+			background: linear-gradient(125.58deg, #00D23A -5.37%, #00D23A 196.64%);
+		}
+
+		&--second,
+		&--third{
+			width: 100%;
+			border-radius: 10px;
+		}
+
+		&[disabled]{
+			pointer-events: none;
+			opacity: .6;
+		}
+	}
+
+
+	&__form{
+		position: relative;
+	}
+
+
+	&__input{
+		display: block;
+		border-radius: 0;
+		color: #000;
+		line-height: 1.1rem;
+		font-weight: bold;
+		width: 100%;
+		padding: 0.9rem;
+		border: none;
+		border-bottom: 3px solid transparent;
+		margin-bottom: 1rem;
+		outline: none;
+
+
+
+		&::placeholder{
+			color: #000;
+		}
+
+		&.success{
+			border-bottom-color: #00D23A;
+		}
+
+		&.danger{
+			border-bottom-color: rgba(210, 0, 13, 0.8);
+		}
+	}
+
+	&__link{
+		display: block;
+		padding: 0.5rem 0;
+		text-decoration: none;
+		transition: .3s;
+
+		font-weight: 300;
+		font-size: 16px;
+		line-height: 22px;
+		text-align: center;
+		color: #445984;
+
+		&:hover{
+			color: darken(#fcfcfc, 15%);
+		}
+	}
+
+}
+
+
